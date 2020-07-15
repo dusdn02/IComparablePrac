@@ -6,6 +6,22 @@ using System.Threading.Tasks;
 
 namespace IComparablePrac
 {
+    interface ITest
+    {
+
+    }
+    class TestClass : IBasic
+    {
+        public int TestProperty
+        {
+            get=>0;
+            set => value = 0;
+        }
+        public int TestInstanceMethod()
+        {
+            return 0;
+        }
+    }
     class Product : IComparable
     {
         public string Name { get; set; }
@@ -16,6 +32,7 @@ namespace IComparablePrac
             // throw new NotImplementedException();
             //return this.Price - ((Product)obj).Price;
             //return this.Name[0] - ((Product)obj).Name[0];
+            return this.Name.CompareTo(((Product)obj).Name);
             return this.Price.CompareTo(((Product)obj).Price);
         }
 
